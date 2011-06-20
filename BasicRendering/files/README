@@ -1,0 +1,17 @@
+Shaders must be compiled. This can be done with Tser's Shadercompiler, which
+uses the XNA Framework. This requires Windows, Visual Studio Express 2008
+(C#), and XNA 3.0. (It also works with older XNA releases)
+
+You can get the shader compiler from
+
+http://minilgos.perso.sfr.fr/xenkit/rshadercompiler.zip
+
+You need to create a new project, add the Reference to Microsoft.XNA, and
+insert the Program.cs. 
+
+Once you built the .exe, compile with
+
+shadercompiler.exe vs.hlsl vs.vsu /vs
+shadercompiler.exe ps.hlsl ps.psu /ps
+
+Have fun!
