@@ -101,7 +101,7 @@ int main(){
 	regulateTemperatures();
 
 	printf("Welcome to XDash!\n");
-	printf("Version 0.02\n\n\n");
+	printf("Version 0.03\n\n\n");
 
 	printf("Press X to display the hardware temperatures.\n");
 	printf("Press B to power down the console.\n");
