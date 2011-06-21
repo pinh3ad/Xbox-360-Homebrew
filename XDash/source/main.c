@@ -92,6 +92,18 @@ void regulateTemperatures(){
 	}
 }
 
+void displayCPUKey(){
+	char FUSES[350];
+	char *fusestr = FUSES;
+
+	int i;
+
+	for (i=0; i<5; ++i){
+		fusestr += sprintf(fusestr, "fuseset %02d: %016lx", i, *(unsigned long*)(0x8000020000020000 + (i * 0x200)));
+	}
+	printf(FUSES);
+}
+
 int main(){
 		/* mainInit is defined in video_init.h, it handles 
 		Xenos_init as well as console and USB init. */
@@ -102,6 +114,7 @@ int main(){
 
 	printf("Welcome to XDash!\n");
 	printf("Version 0.03\n\n\n");
+	displayCPUKey();
 
 	printf("Press X to display the hardware temperatures.\n");
 	printf("Press B to power down the console.\n");
