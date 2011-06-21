@@ -47,7 +47,7 @@ void printTemperatures(){
         MOBO_TMP = (float)((buf[3 * 2 + 1] | (buf[3 * 2 + 2] << 8)) / 256.0);
       
         printf("CPU = %4.2f C GPU = %4.2f C MEM = %4.2f C Mobo = %4.2f C", CPU_TMP, GPU_TMP, MEM_TMP, MOBO_TMP);
-        printf("\r");
+        printf("\n");
 }
 
 	/* Msg the SMC to adjust the system fan speeds. Thanks to Ced2911 :) */
@@ -98,6 +98,7 @@ int main(){
 	mainInit();
 	clearScreen();
 	setASCII();
+	regulateTemperatures();
 
 	printf("Welcome to XDash!\n");
 	printf("Version 0.02\n\n\n");
