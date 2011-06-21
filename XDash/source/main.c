@@ -23,6 +23,9 @@
 #include "video_init.h"
 #include "Globals.h"
 
+	/* Hardware temperature values, used multiple times in code, so declared as global. */
+float CPU_TMP = 0, GPU_TMP = 0, MEM_TMP = 0, MOBO_TMP = 0;
+
 	/* Message the SMC to shut down the console. */
 void shutdownConsole(){
 	xenon_smc_power_shutdown();
@@ -30,7 +33,6 @@ void shutdownConsole(){
 	/* This function will print the system temperatures actively. */
 void printTemperatures(){
 	uint8_t buf[16];
-	float CPU_TMP = 0, GPU_TMP = 0, MEM_TMP = 0, MOBO_TMP = 0;
 
         memset(buf, 0, 16);
    
@@ -46,6 +48,48 @@ void printTemperatures(){
       
         printf("CPU = %4.2f C GPU = %4.2f C MEM = %4.2f C Mobo = %4.2f C", CPU_TMP, GPU_TMP, MEM_TMP, MOBO_TMP);
         printf("\r");
+}
+
+	/* Msg the SMC to adjust the system fan speeds. Thanks to Ced2911 :) */
+void xenon_set_cpu_fan_speed(unsigned val){
+
+	unsigned char msg[16] = { 0x94, (val & 0x7F) | 0x80 };
+
+	xenon_smc_send_message(msg);
+	
+}
+
+void xenon_set_gpu_fan_speed(unsigned val){
+
+	unsigned char msg[16] = { 0x89, (val & 0x7F) | 0x80 };
+
+	xenon_smc_send_message(msg);
+
+}
+
+	/* Attempt to automatically regulate the fan speed based on the console temperatures. */
+		/* This is new, may or may not work correctly. */
+void regulateTemperatures(){
+	if(CPU_TMP==45){
+		xenon_set_cpu_fan_speed(70);
+	}
+
+	if(GPU_TMP==45){
+		xenon_set_gpu_fan_speed(70);
+	}
+
+	if(CPU_TMP==53){
+		xenon_set_cpu_fan_speed(80);
+	}
+
+	if(GPU_TMP==53){
+		xenon_set_gpu_fan_speed(80);
+	}
+
+	if(CPU_TMP > 58, GPU_TMP > 58){
+		xenon_set_gpu_fan_speed(100);
+		xenon_set_cpu_fan_speed(100);
+	}
 }
 
 int main(){
@@ -82,9 +126,9 @@ int main(){
 			}
 			if((button.y)&&(!controller.y))
 			{
-				int override = rand() % 4; 
-				int state = rand() % 4;
-				int startanim = rand() % 4;				
+				int override = rand() % 10; 
+				int state = rand() % 10;
+				int startanim = 0;				
 
 				xenon_smc_set_power_led(override, state, startanim);
 			}
@@ -92,7 +136,7 @@ int main(){
 			{
 				clearScreen();
 				shutdownConsole();
-			}												  
+			}											  
 			controller=button;
 		}
  		usb_do_poll();

@@ -5,6 +5,7 @@ XDash is in a very early stage, but so far can do the following:
 Handle user input from the 360 controller
 Display the system hardware temperatures in real time.
 Shut down the console
+Automatically regulate the console fan speed based on component temperatures.
 
 It isn't much, but it's progress. Eventually, XDash will be abel to:
 
@@ -19,4 +20,3 @@ XDash is still in a very early state, but I plan to rapidly develop it in the ne
 Enjoy!
 
 UNIX - LibXenon.org
-
