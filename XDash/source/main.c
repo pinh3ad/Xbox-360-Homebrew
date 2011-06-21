@@ -87,8 +87,8 @@ void regulateTemperatures(){
 	}
 
 	if(CPU_TMP > 58, GPU_TMP > 58){
-		xenon_set_gpu_fan_speed(100);
-		xenon_set_cpu_fan_speed(100);
+		xenon_set_gpu_fan_speed(110);
+		xenon_set_cpu_fan_speed(110);
 	}
 }
 

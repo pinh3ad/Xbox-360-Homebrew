@@ -1,4 +1,4 @@
-main.o: /home/tiffany/libxenon/xdash/source/main.c \
+main.o: /home/tiffany/Xbox-360-Homebrew/XDash/source/main.c \
  /usr/local/xenon/usr/include/stdio.h \
  /usr/local/xenon/usr/include/features.h \
  /usr/local/xenon/usr/include/bits/predefs.h \
@@ -33,9 +33,9 @@ main.o: /home/tiffany/libxenon/xdash/source/main.c \
  /usr/local/xenon/usr/include/input/input.h \
  /usr/local/xenon/usr/include/xenos/xenos.h \
  /usr/local/xenon/usr/include/xenon_smc/xenon_smc.h \
- /home/tiffany/libxenon/xdash/source/video_init.h \
+ /home/tiffany/Xbox-360-Homebrew/XDash/source/video_init.h \
  /usr/local/xenon/usr/include/console/console.h \
- /home/tiffany/libxenon/xdash/source/Globals.h
+ /home/tiffany/Xbox-360-Homebrew/XDash/source/Globals.h
 
 /usr/local/xenon/usr/include/stdio.h:
 
@@ -105,8 +105,8 @@ main.o: /home/tiffany/libxenon/xdash/source/main.c \
 
 /usr/local/xenon/usr/include/xenon_smc/xenon_smc.h:
 
-/home/tiffany/libxenon/xdash/source/video_init.h:
+/home/tiffany/Xbox-360-Homebrew/XDash/source/video_init.h:
 
 /usr/local/xenon/usr/include/console/console.h:
 
-/home/tiffany/libxenon/xdash/source/Globals.h:
+/home/tiffany/Xbox-360-Homebrew/XDash/source/Globals.h:
