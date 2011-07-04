@@ -1,4 +1,5 @@
 main.o: /home/tiffany/Xbox-360-Homebrew/XDash/source/main.c \
+ /home/tiffany/Xbox-360-Homebrew/XDash/source/video_init.h \
  /usr/local/xenon/usr/include/stdio.h \
  /usr/local/xenon/usr/include/features.h \
  /usr/local/xenon/usr/include/bits/predefs.h \
@@ -13,6 +14,9 @@ main.o: /home/tiffany/Xbox-360-Homebrew/XDash/source/main.c \
  /usr/local/xenon/usr/include/bits/stdio_lim.h \
  /usr/local/xenon/usr/include/bits/sys_errlist.h \
  /usr/local/xenon/usr/include/bits/stdio.h \
+ /usr/local/xenon/usr/include/xenos/xenos.h \
+ /usr/local/xenon/usr/include/console/console.h \
+ /home/tiffany/Xbox-360-Homebrew/XDash/source/Globals.h \
  /usr/local/xenon/usr/include/stdlib.h \
  /usr/local/xenon/usr/include/bits/waitflags.h \
  /usr/local/xenon/usr/include/bits/waitstatus.h \
@@ -30,12 +34,22 @@ main.o: /home/tiffany/Xbox-360-Homebrew/XDash/source/main.c \
  /usr/local/xenon/usr/include/alloca.h \
  /usr/local/xenon/usr/include/stdint.h \
  /usr/local/xenon/usr/include/bits/wchar.h \
+ /usr/local/xenon/usr/include/dirent.h \
+ /usr/local/xenon/usr/include/bits/dirent.h \
+ /usr/local/xenon/usr/include/bits/posix1_lim.h \
+ /usr/local/xenon/usr/include/bits/local_lim.h \
+ /usr/local/xenon/usr/include/linux/limits.h \
+ /usr/local/xenon/usr/include/elf/elf.h \
  /usr/local/xenon/usr/include/input/input.h \
- /usr/local/xenon/usr/include/xenos/xenos.h \
  /usr/local/xenon/usr/include/xenon_smc/xenon_smc.h \
- /home/tiffany/Xbox-360-Homebrew/XDash/source/video_init.h \
- /usr/local/xenon/usr/include/console/console.h \
- /home/tiffany/Xbox-360-Homebrew/XDash/source/Globals.h
+ /usr/local/xenon/usr/include/xenon_soc/xenon_power.h \
+ /usr/local/xenon/usr/include/diskio/diskio.h \
+ /usr/local/xenon/usr/include/usb/usbmain.h \
+ /usr/local/xenon/usr/include/diskio/dvd.h \
+ /usr/local/xenon/usr/include/diskio/ata.h \
+ /usr/local/xenon/usr/include/diskio/diskio.h
+
+/home/tiffany/Xbox-360-Homebrew/XDash/source/video_init.h:
 
 /usr/local/xenon/usr/include/stdio.h:
 
@@ -64,6 +78,12 @@ main.o: /home/tiffany/Xbox-360-Homebrew/XDash/source/main.c \
 /usr/local/xenon/usr/include/bits/sys_errlist.h:
 
 /usr/local/xenon/usr/include/bits/stdio.h:
+
+/usr/local/xenon/usr/include/xenos/xenos.h:
+
+/usr/local/xenon/usr/include/console/console.h:
+
+/home/tiffany/Xbox-360-Homebrew/XDash/source/Globals.h:
 
 /usr/local/xenon/usr/include/stdlib.h:
 
@@ -99,14 +119,30 @@ main.o: /home/tiffany/Xbox-360-Homebrew/XDash/source/main.c \
 
 /usr/local/xenon/usr/include/bits/wchar.h:
 
-/usr/local/xenon/usr/include/input/input.h:
+/usr/local/xenon/usr/include/dirent.h:
 
-/usr/local/xenon/usr/include/xenos/xenos.h:
+/usr/local/xenon/usr/include/bits/dirent.h:
+
+/usr/local/xenon/usr/include/bits/posix1_lim.h:
+
+/usr/local/xenon/usr/include/bits/local_lim.h:
+
+/usr/local/xenon/usr/include/linux/limits.h:
+
+/usr/local/xenon/usr/include/elf/elf.h:
+
+/usr/local/xenon/usr/include/input/input.h:
 
 /usr/local/xenon/usr/include/xenon_smc/xenon_smc.h:
 
-/home/tiffany/Xbox-360-Homebrew/XDash/source/video_init.h:
+/usr/local/xenon/usr/include/xenon_soc/xenon_power.h:
 
-/usr/local/xenon/usr/include/console/console.h:
+/usr/local/xenon/usr/include/diskio/diskio.h:
 
-/home/tiffany/Xbox-360-Homebrew/XDash/source/Globals.h:
+/usr/local/xenon/usr/include/usb/usbmain.h:
+
+/usr/local/xenon/usr/include/diskio/dvd.h:
+
+/usr/local/xenon/usr/include/diskio/ata.h:
+
+/usr/local/xenon/usr/include/diskio/diskio.h:

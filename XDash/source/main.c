@@ -13,16 +13,25 @@
 \  Written by UNIX:
 \  LibXenon.org
 */
+#include "video_init.h"
+#include "Globals.h"
 
 #include <stdio.h>
 #include <stdlib.h>
 #include <stdint.h>
+
+#include <dirent.h>
+#include <elf/elf.h>
 #include <input/input.h>
 #include <xenos/xenos.h>
 #include <xenon_smc/xenon_smc.h>
-#include "video_init.h"
-#include "Globals.h"
+#include <xenon_soc/xenon_power.h>
+#include <diskio/diskio.h>
+#include <usb/usbmain.h>
+#include <diskio/dvd.h>
+#include <diskio/ata.h>
 
+struct dirent entries[MAX_FILES];
 	/* Hardware temperature values, used multiple times in code, so declared as global. */
 float CPU_TMP = 0, GPU_TMP = 0, MEM_TMP = 0, MOBO_TMP = 0;
 
@@ -72,23 +81,28 @@ void xenon_set_gpu_fan_speed(unsigned val){
 void regulateTemperatures(){
 	if(CPU_TMP==45){
 		xenon_set_cpu_fan_speed(70);
+		printf("Shifted CPU fan speed to level 1.");
 	}
 
 	if(GPU_TMP==45){
 		xenon_set_gpu_fan_speed(70);
+		printf("Shifted GPU fan speed to level 1.");
 	}
 
 	if(CPU_TMP==53){
 		xenon_set_cpu_fan_speed(80);
+		printf("Shifted CPU fan speed to level 2.");
 	}
 
 	if(GPU_TMP==53){
 		xenon_set_gpu_fan_speed(80);
+		printf("Shifted GPU fan speed to level 2.");
 	}
 
 	if(CPU_TMP > 58, GPU_TMP > 58){
 		xenon_set_gpu_fan_speed(110);
 		xenon_set_cpu_fan_speed(110);
+		printf("Shifted both fans to level 3.");
 	}
 }
 
@@ -98,25 +112,30 @@ int main(){
 	mainInit();
 	clearScreen();
 	setASCII();
-	regulateTemperatures();
+	xenon_make_it_faster(XENON_SPEED_FULL);
 
 	printf("Welcome to XDash!\n");
 	printf("Version 0.03\n\n\n");
 
 	printf("Press X to display the hardware temperatures.\n");
-	printf("Press B to power down the console.\n");
-	printf("Press Y to set the front panel LED color.\n");
+	printf("Press B to reboot to XeLL.\n");
+	printf("Press Y to shut down the console.\n");
 
-	printf("Press the BACK button at any time for main screen.\n");
+	printf("Press the START button at any time for main screen.\n");
 
+	const char * s;
+	char path[256];
+	
 		/* Handle input */
 		/* This is fairly self explanitory. Assigning button presses to functions */
 	struct controller_data_s controller;
-	while(1){ 		
+	while(1){
+		regulateTemperatures();
+ 		
 		struct controller_data_s button;
  		if (get_controller_data(&button, 0))
  		{
-			if((button.select)&&(!controller.select))
+			if((button.start)&&(!controller.start))
 			{
 				clearScreen();
 				reDash();
@@ -127,11 +146,7 @@ int main(){
 			}
 			if((button.y)&&(!controller.y))
 			{
-				int override = rand() % 10; 
-				int state = rand() % 10;
-				int startanim = 0;				
-
-				xenon_smc_set_power_led(override, state, startanim);
+				clearScreen();
 			}
 			if((button.b)&&(!controller.b))
 			{
