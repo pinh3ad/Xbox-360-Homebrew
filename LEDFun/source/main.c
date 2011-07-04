@@ -16,7 +16,6 @@ int main(){
 	xenon_smc_set_power_led(4, 4, 0);
 
 	printf("Press B to reboot.");
-	printf("Press A to change LED colors.");
 
 	struct controller_data_s controller;
 	while(1){
