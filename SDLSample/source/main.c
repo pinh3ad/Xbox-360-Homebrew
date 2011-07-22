@@ -50,8 +50,6 @@ void DrawScreen(SDL_Surface* screen, int h)
 
 int main(int argc, char* argv[])
 {
-    mainInit();
-
     SDL_Surface *screen;
     SDL_Event event;
   
