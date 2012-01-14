@@ -1,0 +1,11 @@
+This is a project based on loading elf files to memory over serial, and 
+setting them up and executing from memory. 
+
+The aim is to create a system similar to the official XDK remote 
+deployment for LibXenon. 
+
+#===Project Status===
+
+Project created 1-14-12
+
+#====================
