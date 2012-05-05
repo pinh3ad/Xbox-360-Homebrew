@@ -1,0 +1,3 @@
+This code will attemp to automatically regulate the fan speed of the console based on the temperatures of the CPU or GPU. If either processor reaches a set temperature, the code will elevate the fan speed level, and print out the state change to the console.
+
+The code here was originally implemented in XDash. I decided to isolate it to it's own folder, since XDash is being re-designed and forked to it's own repository.
