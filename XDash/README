@@ -1,22 +1,5 @@
-XDash is a very simple, user friendly, text based tool to manipulate the Xbox 360.
+I have backed up the old XDash source code into the OLD directory. The original source code for XDash when it was first created can be found there. 
 
-XDash is in a very early stage, but so far can do the following:
+I am currently working on re-designing XDash, so much so that I have moved it to it's own repository since it is growing much larger.
 
-Handle user input from the 360 controller
-Display the system hardware temperatures in real time.
-Shut down the console
-Automatically regulate the console fan speed based on component temperatures.
-
-It isn't much, but it's progress. Eventually, XDash will be abel to:
-
-Soft reboot the console
-Provide (T/)FTP access
-NAND reading/writing tools
-Fan speed controller
-etc
-
-XDash is still in a very early state, but I plan to rapidly develop it in the next few weeks.
-
-Enjoy!
-
-UNIX - LibXenon.org
+New developments can be found at https://github.com/IUNIXI/XDash
