@@ -20,9 +20,6 @@ unsigned char *address = (unsigned char *) 0xA00000;
 int main(){
 	videoInit();
 
-	// Set i equal to 0 bytes
-	int i = 0x0;
-
 	if(kbhit()){
 		// Read from UART
 		unsigned char data = getch();
@@ -31,10 +28,11 @@ int main(){
 		if(sizeof(data) == 0x4){
 			strcmp(data, ELF_MAGIC);
 			printf("!! UNIX ELF DETECTED.\n");
+			printf("Success.\n");
 		}
 		else{
-			printf("!= UNKNOWN FILE DETECTED.\N");
-			printf("Did you upload the wrong file?");
+			printf("!= UNKNOWN FILE DETECTED.\n");
+			printf("Did you upload the wrong file?\n");
 		}
 	}
 }

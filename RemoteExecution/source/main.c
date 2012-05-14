@@ -12,16 +12,13 @@
 #include <elf/elf.h>
 
 // An array of bytes containing the ELF magic number
-unsigned char ELF_MAGIC[5] = {'0x7f', '0x45', '0x4c', '0x46'};
+unsigned char ELF_MAGIC[5] = {0x7f, 0x45, 0x4c, 0x46};
 
 // Point at a specific memory address
 unsigned char *address = (unsigned char *) 0xA00000;
 
 int main(){
 	videoInit();
-
-	// Set i equal to 0 bytes
-	int i = 0x0;
 
 	if(kbhit()){
 		// Read from UART
