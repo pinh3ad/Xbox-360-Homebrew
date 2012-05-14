@@ -12,7 +12,7 @@
 #include <elf/elf.h>
 
 // An array of bytes containing the ELF magic number
-unsigned char ELF_MAGIC[5] = {'0x7f', '0x45', '0x4c', '0x46'};
+unsigned char ELF_MAGIC[5] = {0x7f, 0x45, 0x4c, 0x46};
 
 // Point at a specific memory address
 unsigned char *address = (unsigned char *) 0xA00000;
@@ -26,14 +26,17 @@ int main(){
 
 		// If sizeof data is equal to 4 bytes
 		if(sizeof(data) == 0x4){
-			strcmp(data, ELF_MAGIC);
+			if(strcmp(data, ELF_MAGIC)) printf("!! UNIX ELF DETECTED.\n");
 			printf("!! UNIX ELF DETECTED.\n");
 			printf("Success.\n");
+			exit(0);
 		}
 		else{
 			printf("!= UNKNOWN FILE DETECTED.\n");
-			printf("Did you upload the wrong file?\n");
+			exit(-1);
 		}
 	}
+
+	return 0;
 }
 

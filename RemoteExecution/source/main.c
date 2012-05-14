@@ -26,14 +26,14 @@ int main(){
 
 		// If sizeof data is equal to 4 bytes
 		if(sizeof(data) == 0x4){
-			strcmp(data, ELF_MAGIC);
-			printf("!! UNIX ELF DETECTED.\n");
-			printf("Success.\n");
+			if(strcmp(data, ELF_MAGIC)) printf("!! UNIX ELF DETECTED.\n");
 		}
 		else{
 			printf("!= UNKNOWN FILE DETECTED.\n");
-			printf("Did you upload the wrong file?\n");
+			exit(-1);
 		}
 	}
+
+	return 0;
 }
 
