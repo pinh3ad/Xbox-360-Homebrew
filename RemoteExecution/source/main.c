@@ -12,7 +12,7 @@
 #include <elf/elf.h>
 
 // An array of bytes containing the ELF magic number
-unsigned char ELF_MAGIC[4] = {'0x7f', '0x45', '0x4c', '0x46' };
+unsigned char ELF_MAGIC[5] = {'0x7f', '0x45', '0x4c', '0x46'};
 
 // Point at a specific memory address
 unsigned char *address = (unsigned char *) 0xA00000;
@@ -23,25 +23,20 @@ int main(){
 	// Set i equal to 0 bytes
 	int i = 0x0;
 
-	/* If UART status is okay, execute a loop. Within that loop,
-	   getch(), and 
-	*/
 	if(kbhit()){
+		// Read from UART
 		unsigned char data = getch();
 
-		while(data){
-			i++;
-
-			if(i == 0x4){
-				if(data == ELF_MAGIC){
-					break;
-				}
-			}
+		// If sizeof data is equal to 4 bytes
+		if(sizeof(data) == 0x4){
+			strcmp(data, ELF_MAGIC);
+			printf("!! UNIX ELF DETECTED.\n");
+			printf("Success.\n");
+		}
+		else{
+			printf("!= UNKNOWN FILE DETECTED.\n");
+			printf("Did you upload the wrong file?\n");
 		}
 	}
-
-	printf("Success status 0!\n");
-
-	return 0;
 }
 
