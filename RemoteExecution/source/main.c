@@ -20,12 +20,27 @@ unsigned char *address = (unsigned char *) 0xA00000;
 int main(){
 	videoInit();
 
-	printf("Waiting for kbhit()\n");
+	// Set i equal to 0 bytes
+	int i = 0x0;
 
-	// If
+	/* If UART status is okay, execute a loop. Within that loop,
+	   getch(), and 
+	*/
 	if(kbhit()){
-		
+		unsigned char data = getch();
+
+		while(data){
+			i++;
+
+			if(i == 0x4){
+				if(data == ELF_MAGIC){
+					break;
+				}
+			}
+		}
 	}
+
+	printf("Success status 0!\n");
 
 	return 0;
 }
