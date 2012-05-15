@@ -7,7 +7,7 @@
 #include <console/console.h>
 #include <xenos/xenos.h>
 #include <xenos/xe.h>
-#include <xenon_smc/xenon_smc.h>
+#include <xenos_smc/xenon_smc.h>
 #include "video_init.h"
 
 int main(){
