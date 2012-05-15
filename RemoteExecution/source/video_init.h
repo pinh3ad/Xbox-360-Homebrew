@@ -9,6 +9,6 @@
 #include <console/console.h>
 
 void videoInit(){
-	xenos_init(VIDEO_MODE_AUTO);
+	xenos_init(VIDEO_MODE_VGA_1280x768);
 	console_init();
 }
