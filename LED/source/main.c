@@ -1,0 +1,29 @@
+// Standard C includes
+#include <stdio.h>
+
+// Local includes
+#include "video_init.h"
+
+// Xenon includes
+#include <xenon_smc/xenon_smc.h>
+#include <time/time.h>
+
+int main(){
+	// Init console and video
+	videoInit();
+
+	// Setup a loop to mess with the LED colors :D
+	while(1){
+		printf("Party!\r");
+
+		xenon_smc_set_led(1, 1);
+		mdelay(10);
+		xenon_smc_set_led(2, 2);
+		mdelay(10);
+		xenon_smc_set_led(3, 3);
+		mdelay(10);
+		xenon_smc_set_led(4, 4);
+		mdelay(10);
+	}
+}
+
